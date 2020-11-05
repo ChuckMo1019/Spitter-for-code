@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    button {
+      height:4em;
+      width:8em;
+  
+      background:
+        -webkit-linear-gradient(top, #555, #333);
+  /*direction, colorstop1, colorstop2*/
+      background:linear-gradient(top,#555,#333);
+      color:white;
+      transform-origin:50% 4em;
+    }
+    @media print{
+      .noprint {
+        display: none;
+      }
+    }
+    @media save {
+      .noprint {
+        display: none;
+      }
+    }
+  </style>
+	<title>Students Score</title>
+</head>
+<body bgcolor="#cccccc">
+  <a href="https://ichuckmo.wixsite.com/homie">Click to go BACK!!!!!</a>
+	<h3>Name: <b id="naMe"></b></h3>
+	<center>
+	<table border="1" cellspacing="5" bgcolor="white" class="noprint">
+		<caption><b>Input Scores</b></caption>
+		<tr>
+			<th rowspan="2">Name</th>
+			<th colspan="4">Subject Score</th>
+
+		</tr>
+		<tr>
+			<th>Math</th>
+			<th>Science</th>
+			<th>Language Arts</th>
+			<th>Social Studies</th>
+		</tr>
+		<tr>
+			<td><input type="text" id="tname"></td>
+			<td><input type="text" id="tfm"></td>
+			<td><input type="text" id="tfj"></td>
+			<td><input type="text" id="tfd"></td>
+			<td><input type="text" id="tfn"></td>
+		</tr>
+		<tr>
+			<th colspan="5" height="30"><input type="submit" value="Add To Table" onclick="myFunc()"></th>
+		</tr>	
+	</table>
+	<br>
+	<table border="1" cellspacing="5" bgcolor="white" height="100" width="500" cellpadding="5" id="TableScore">
+		<caption><b>Scores:</b></caption>
+		<tr>
+			<th width="180">Name</th>
+			<th>Score Total</th>
+			<th>Average</th>
+			<th>Pass/Fail</th>
+		</tr>
+		
+	</table>
+	</center>
+	<script type="text/javascript">
+		function myFunc(){
+			var nam, m, j, d, n, to, av;
+			nam=(document.getElementById('tname').value);
+			m=parseFloat(document.getElementById('tfm').value);
+			j=parseFloat(document.getElementById('tfj').value);
+			d=parseFloat(document.getElementById('tfd').value);
+			n=parseFloat(document.getElementById('tfn').value);
+			//caculate
+			to=m+j+d+n;
+			av=to/4;
+			//Display on Table
+			var newTable = document.getElementById('TableScore');
+			var row = newTable.insertRow(-1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(0);
+			var cell3 = row.insertCell(0);
+			var cell4 = row.insertCell(0);
+
+			cell4.innerHTML= nam;
+			cell3.innerHTML=to / 4;
+			cell2.innerHTML = av;
+
+			if(av>=50){
+				cell1.innerHTML="<font color=lightgreen>Pass</font>";
+			}else{
+				cell1.innerHTML="<font color=red>Fail</font>";
+			}
+      var naMe = document.getElementById("naMe")
+      naMe.innerHTML = nam
+		}
+	</script>
+  <a class="noprint" href="/index.html">Click here to GO <img src="/download.jpg" /> YAY!!!!!</a>
+  <a class="noprint" href="javascript:window.print()"><img src="/click-here-to-print.jpg" alt="print this page" id="print-button" /></a>
+  <center>
+    <button onclick="window.location.reload()" class="noprint">Click to reset the scores!!</button>
+  </center>
+</body>
+</h
